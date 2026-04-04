@@ -19,7 +19,7 @@ nav a:hover{color:#0a4f7a}
 .lang{cursor:pointer;border:1px solid #ddd;padding:6px 10px;border-radius:6px;font-size:14px}
 .menu img{width:30px}
 /* HERO SLIDER */
-.hero-slider{position:relative;height:85vh;overflow:hidden}
+.hero-slider{position:relative;height:85dvh;overflow:hidden}
 .hero-slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 1.2s ease}
 .hero-slide img{width:100%;height:100%;object-fit:cover}
 .hero-slide.active{opacity:1}
