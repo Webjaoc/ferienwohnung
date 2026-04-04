@@ -14,12 +14,13 @@
 <meta property="og:type" content="website" >
 <meta property="og:locale" content="de_AT" >
 <meta property="og:image" content="images/bodensee.jpg" >
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
+    <div id="home"></div>
 
 <!-- NAVIGATION -->
 <nav>
@@ -28,14 +29,15 @@
         <i class="fa-solid fa-bars menu_hamburger"></i>
     </div>
 
-    <ul class="menu">
-        <li class="icon_x"><i class="fa-solid fa-x menu_close"></i></li>    
-        <li><a href="#apartments" data-i18n="apartments">Apartments</a></li><hr>
-        <li><a href="#region" data-i18n="region">Region</a></li><hr>
-        <li><a href="#contact" data-i18n="contact">Contact</a></li><hr>
-        <li class="lang" onclick="setLang('en')"><img src="./assets/images/english.png" alt="english flag"></li><hr>
-        <li class="lang" onclick="setLang('de')"><img src="./assets/images/deustchland.png" alt="deutschland flag"></li><hr>
-    </ul>
+    <div class="menu  visual_menu">
+        <div class="icon_x"><i class="fa-solid fa-x menu_close"></i></div>
+        <a href="#home" data-i18n="apartments">Home</a><hr>
+        <a href="#apartments" data-i18n="apartments">Apartments</a><hr>
+        <a href="#region" data-i18n="region">Region</a><hr>
+        <a href="#contact" data-i18n="contact">Contact</a><hr>
+        <div class="lang" onclick="setLang('en')"><img src="./assets/images/english.png" alt="english flag"></div><hr>
+        <div class="lang" onclick="setLang('de')"><img src="./assets/images/deustchland.png" alt="deutschland flag"></div><hr>
+    </div>
     
 </nav>
 
