@@ -1,56 +1,6 @@
-const slides = document.querySelector(".slides");
-const slide = document.querySelectorAll(".slide");
 
-const next = document.getElementById("next");
-const prev = document.getElementById("prev");
 
-let index = 0;
-const total = slide.length;
-
-/* actualizar */
-function update(){
-slides.style.transform = `translateX(-${index * 100}%)`;
-}
-
-/* botones */
-next.addEventListener("click", () => {
-index = (index + 1) % total;
-update();
-});
-
-prev.addEventListener("click", () => {
-index = (index - 1 + total) % total;
-update();
-});
-
-/* autoplay */
-setInterval(() => {
-index = (index + 1) % total;
-update();
-}, 5000);
-
-/* swipe móvil */
-let startX = 0;
-
-slides.addEventListener("touchstart", (e) => {
-startX = e.touches[0].clientX;
-});
-
-slides.addEventListener("touchend", (e) => {
-let endX = e.changedTouches[0].clientX;
-
-if(startX - endX > 50){
-index = (index + 1) % total;
-update();
-}
-
-if(endX - startX > 50){
-index = (index - 1 + total) % total;
-update();
-}
-});
-
-/* HERO SLIDER 
+/* HERO SLIDER */
 let heroIndex=0
 const heroSlides=document.querySelectorAll('.hero-slide')
 
@@ -71,7 +21,7 @@ function prevHero(){
 
 setInterval(nextHero,3000)
 
-/* TOUCH SWIPE MOBILE 
+/* TOUCH SWIPE MOBILE */
 let startX=0
 
 const slider=document.querySelector('.hero-slider')
@@ -85,7 +35,7 @@ slider.addEventListener('touchend',e=>{
  if(startX-endX>50) nextHero()
  if(endX-startX>50) prevHero()
 })
-*/
+
 /* TRANSLATIONS */
 const translations={
 
