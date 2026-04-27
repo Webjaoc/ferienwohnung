@@ -1,5 +1,8 @@
 
-
+window.onload = () => {
+  window.scrollTo(0, 0);
+};
+window.history.scrollRestoration = "manual";
 /* HERO SLIDER */
 let heroIndex=0
 const heroSlides=document.querySelectorAll('.hero-slide')
@@ -9,6 +12,15 @@ function showHero(){
  heroSlides[heroIndex].classList.add('active')
 }
 
+function nextHero(){
+ heroIndex=(heroIndex+1)%heroSlides.length
+ showHero()
+}
+
+function prevHero(){
+ heroIndex=(heroIndex-1+heroSlides.length)%heroSlides.length
+ showHero()
+}
 
 setInterval(nextHero,3000)
 
