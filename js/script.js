@@ -1,25 +1,26 @@
 
 
 /* HERO SLIDER */
-let heroIndex=0
-const heroSlides=document.querySelectorAll('.hero-slide')
+const slides = document.querySelector(".slides");
+const slide = document.querySelectorAll(".slide");
+let index = 0;
 
-function showHero(){
- heroSlides.forEach(s=>s.classList.remove('active'))
- heroSlides[heroIndex].classList.add('active')
+function update(){
+slides.style.transform = `translateX(-${index * 100}%)`;
 }
 
-function nextHero(){
- heroIndex=(heroIndex+1)%heroSlides.length
- showHero()
+setInterval(()=>{
+index = (index + 1) % slide.length;
+update();
+},5000);
+
+function openMenu(){
+document.querySelector('.menu').classList.add('active');
 }
 
-function prevHero(){
- heroIndex=(heroIndex-1+heroSlides.length)%heroSlides.length
- showHero()
+function closeMenu(){
+document.querySelector('.menu').classList.remove('active');
 }
-
-setInterval(nextHero,3000)
 
 /* TOUCH SWIPE MOBILE */
 let startX=0

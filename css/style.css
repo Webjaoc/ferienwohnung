@@ -111,7 +111,7 @@ footer{text-align:center;padding:30px;background:#eee;margin-top:40px}
 .hero-text h1{font-size:2rem}
 nav{padding:14px 18px}
 .region{grid-template-columns:1fr}
-.hero-slider{height:70vh}
+.hero-slider{height:70dvh}
 }
 nav{
 position:sticky;

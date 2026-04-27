@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bodensee Holiday Apartments | Hard, Vorarlberg</title>
+<meta name="description" content="Moderne Ferienwohnungen in Hard am Bodensee in Vorarlberg. Urlaub nahe Bregenz mit Blick auf den Bodensee. Perfekt für Sommerurlaub, Radfahren und Erholung.">
+<meta name="keywords" content="Ferienwohnung Hard Bodensee, Urlaub Hard Vorarlberg, Apartment Bodensee Österreich, Ferienwohnung Bodensee Österreich, Urlaub Vorarlberg See">
+<meta name="author" content="Ferienwohnungen Hard">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+<div id="home"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <h2>Bodensee Apartments</h2>
+  <div class="hamburger" onclick="openMenu()">☰</div>
+  <div class="menu visual_menu">
+    <div class="icon_x"><span class="menu_close" onclick="closeMenu()">✕</span></div>
+    <a href="#home">Home</a>
+    <a href="#apartments">Apartments</a>
+    <a href="#region">Region</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO SLIDER OPTIMIZED -->
+<section class="hero-slider">
+
+<div class="slides">
+
+<div class="slide">
+<img src="./assets/images/hard_1.png" alt="Bodensee hard" loading="lazy">
+</div>
+
+<div class="slide">
+<img src="./assets/images/bici_1.png" alt="Cycling Bodensee" loading="lazy">
+</div>
+
+<div class="slide">
+<img src="./assets/images/barco_1.png" alt="Boats Bodensee" loading="lazy">
+</div>
+
+<div class="slide">
+<img src="./assets/images/bici_2.png" alt="Fahrrad fahren am Bodensee" loading="lazy">
+</div>
+
+</div>
+
+<div class="hero-text">
+<h1>Holiday Apartments near Lake Constance</h1>
+<p>Enjoy your stay in Hard, Vorarlberg</p>
+</div>
+
+<div class="controls">
+<button id="prev">❮</button>
+<button id="next">❯</button>
+</div>
+
+</section>
+
+<!-- CONTENT -->
+<section class="container" id="apartments">
+<h2>Apartments</h2>
+</section>
+
+<footer>
+© 2026 Bodensee Holiday Apartments
+</footer>
+
+<script>
+const slides = document.querySelector(".slides");
+const slide = document.querySelectorAll(".slide");
+let index = 0;
+
+function update(){
+slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+setInterval(()=>{
+index = (index + 1) % slide.length;
+update();
+},5000);
+
+function openMenu(){
+document.querySelector('.menu').classList.add('active');
+}
+
+function closeMenu(){
+document.querySelector('.menu').classList.remove('active');
+}
+</script>
+
+</body>
+</html>
