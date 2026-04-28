@@ -1,41 +1,4 @@
 
-
-/* HERO SLIDER */
-let heroIndex=0
-const heroSlides=document.querySelectorAll('.hero-slide')
-
-function showHero(){
- heroSlides.forEach(s=>s.classList.remove('active'))
- heroSlides[heroIndex].classList.add('active')
-}
-
-function nextHero(){
- heroIndex=(heroIndex+1)%heroSlides.length
- showHero()
-}
-
-function prevHero(){
- heroIndex=(heroIndex-1+heroSlides.length)%heroSlides.length
- showHero()
-}
-
-setInterval(nextHero,3000)
-
-/* TOUCH SWIPE MOBILE */
-let startX=0
-
-const slider=document.querySelector('.hero-slider')
-
-slider.addEventListener('touchstart',e=>{
- startX=e.touches[0].clientX
-})
-
-slider.addEventListener('touchend',e=>{
- let endX=e.changedTouches[0].clientX
- if(startX-endX>50) nextHero()
- if(endX-startX>50) prevHero()
-})
-
 /* TRANSLATIONS */
 const translations={
 
