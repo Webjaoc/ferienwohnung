@@ -4,134 +4,205 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ferienwohnung Juriatti</title>
-<meta name="description" content="Moderne Ferienwohnungen in Hard am Bodensee in Vorarlberg. Urlaub nahe Bregenz mit Blick auf den Bodensee. Perfekt für Sommerurlaub, Radfahren und Erholung." >
-<meta name="keywords" content="Ferienwohnung Hard Bodensee, Urlaub Hard Vorarlberg, Apartment Bodensee Österreich, Ferienwohnung Bodensee Österreich, Urlaub Vorarlberg See" >
-<meta name="author" content="Ferienwohnungen Hard" >
-<meta name="robots" content="index, follow" >
-<!-- OpenGraph (Social Media) -->
-<meta property="og:title" content="Ferienwohnung Juriatti" >
-<meta property="og:description" content="Moderne Ferienwohnungen für Ihren Urlaub am Bodensee in Hard, Vorarlberg." >
-<meta property="og:type" content="website" >
-<meta property="og:locale" content="de_AT" >
-<meta property="og:image" content="images/bodensee.jpg" >
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:#2A7FFF;
+  --dark:#111;
+  --light:#fff;
+  --gray:#666;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{line-height:1.5;color:var(--dark)}
 
+/* NAV */
+nav{
+ position:fixed;
+ top:0;left:0;width:100%;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:1rem 2rem;
+ background:rgba(255,255,255,0.8);
+ z-index:1000;
+}
+nav h2{font-size:1.2rem}
+.menu{display:flex;gap:1rem}
+.menu a{text-decoration:none;color:var(--dark)}
+.hamburger{display:none;font-size:1.5rem;cursor:pointer}
+
+/* HERO */
+.hero{
+ height:100vh;
+ background:url('assets/images/bici_sonnenruntergang.jpg') center/cover;
+ display:flex;align-items:center;justify-content:center;
+ text-align:center;
+ color:white;
+ position:relative;
+}
+.hero::after{
+ content:"";
+ position:absolute;inset:0;
+ background:rgba(0,0,0,0.4);
+}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-size:2.5rem}
+.hero button{
+ margin-top:1rem;
+ padding:.8rem 1.5rem;
+ border:none;background:var(--primary);
+ color:white;border-radius:5px;cursor:pointer;
+}
+
+/* SECTION */
+section{padding:4rem 2rem;max-width:1200px;margin:auto}
+
+/* CARDS */
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:2rem;
+}
+.card{
+ border-radius:10px;overflow:hidden;
+ box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+.card img{width:100%;height:200px;object-fit:cover}
+.card-content{padding:1rem}
+.card button{
+ margin-top:.5rem;
+ background:var(--primary);
+ color:white;border:none;padding:.5rem 1rem;border-radius:5px;
+}
+
+/* GALLERY */
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+ gap:10px;
+}
+.gallery img{width:100%;cursor:pointer;border-radius:5px}
+
+/* LIGHTBOX */
+.lightbox{
+ position:fixed;inset:0;
+ background:rgba(0,0,0,0.9);
+ display:none;align-items:center;justify-content:center;
+}
+.lightbox img{max-width:90%;max-height:90%}
+
+/* REGION */
+.region{
+ display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;
+}
+.region img{width:100%;border-radius:10px}
+
+/* MAP */
+.map iframe{width:100%;height:300px;border:0}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem;background:#f5f5f5}
+
+/* MOBILE */
+@media(max-width:768px){
+ .menu{display:none;flex-direction:column;position:fixed;top:0;right:0;background:white;height:100%;width:70%;padding:2rem}
+ .menu.active{display:flex}
+ .hamburger{display:block}
+ .region{grid-template-columns:1fr}
+ .hero h1{font-size:2rem}
+}
+</style>
 </head>
 <body>
-    <div id="home"></div>
 
-<!-- NAVIGATION -->
 <nav>
-    <h2>Ferienwohnung Juriatti</h2>
-    <div class="hamburger">
-        <i class="fa-solid fa-bars menu_hamburger"></i>
-    </div>
-
-    <div class="menu  visual_menu">
-        <div class="icon_x"><i class="fa-solid fa-x menu_close"></i></div>
-        <a href="#home" data-i18n="apartments">Home</a><hr>
-        <a href="#apartments" data-i18n="apartments">Apartments</a><hr>
-        <a href="#region" data-i18n="region">Region</a><hr>
-        <a href="#" data-i18n="contact">Contact</a><hr>
-        <div class="lang" onclick="setLang('en')"><img src="./assets/images/english.png" alt="english flag"></div><hr>
-        <div class="lang" onclick="setLang('de')"><img src="./assets/images/deustchland.png" alt="deutschland flag"></div><hr>
-    </div>
-    
+<h2>Juriatti</h2>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<div class="menu" id="menu">
+<a href="#">Home</a>
+<a href="#apartments">Apartments</a>
+<a href="#region">Region</a>
+<a href="#contact">Contact</a>
+</div>
 </nav>
 
-<!-- HERO SLIDER -->
-<section class="hero-slider">
-
-<div class="hero-slide active"><img src="assets/images/bici_sonnenruntergang.jpg" alt="foto"></div>
-
-<div class="hero-text">
-<h2 data-i18n="title">Holiday Apartments near Lake Constance</h2>
-<p data-i18n="subtitle">Enjoy your stay in Hard, Vorarlberg</p>
+<section class="hero">
+<div class="hero-content">
+<h1>Holiday Apartments near Lake Constance</h1>
+<button>Book Now</button>
 </div>
-
 </section>
 
-<!-- APARTMENTS -->
-<section class="container" id="apartments">
-<h2 data-i18n="apartments">Apartments</h2>
-
-<div class="apartments">
-
+<section id="apartments">
+<h2>Apartments</h2>
+<div class="grid">
 <div class="card">
-<img src="assets/images/apartament-1.jpg" alt="foto">
+<img src="assets/images/apartament-1.jpg">
 <div class="card-content">
 <h3>Apartment 1</h3>
-<p>Modern apartment for up to 4 guests. Balcony, kitchen and Wi‑Fi.</p>
+<p>Modern apartment</p>
+<button>View</button>
 </div>
 </div>
-
 <div class="card">
-<img src="assets/images/apartament-2.jpg" alt="foto">
+<img src="assets/images/apartament-2.jpg">
 <div class="card-content">
 <h3>Apartment 2</h3>
-<p>Spacious and bright holiday apartment close to the lake.</p>
+<p>Bright and spacious</p>
+<button>View</button>
 </div>
 </div>
-
 </div>
 </section>
 
-<!-- GALLERY APT 1 -->
-<section class="container">
-<h2>Apartment 1 Gallery</h2>
+<section>
+<h2>Gallery</h2>
 <div class="gallery">
-<img src="assets/images/a1-1.jpg" alt="foto">
-<img src="assets/images/a1-2.jpg" alt="foto">
-<img src="assets/images/a1-3.jpg" alt="foto">
-<img src="assets/images/a1-4.jpg" alt="foto">
+<img src="assets/images/a1-1.jpg" onclick="openLightbox(this)">
+<img src="assets/images/a1-2.jpg" onclick="openLightbox(this)">
+<img src="assets/images/a1-3.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
-<!-- GALLERY APT 2 -->
-<section class="container">
-<h2>Apartment 2 Gallery</h2>
-<div class="gallery">
-<img src="assets/images/a2-1.jpg" alt="foto">
-<img src="assets/images/a2-2.jpg" alt="foto">
-<img src="assets/images/a2-3.jpg" alt="foto">
-<img src="assets/images/a2-4.jpg" alt="foto">
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
 </div>
-</section>
 
-<!-- REGION -->
-<section class="container region" id="region">
-
+<section class="region" id="region">
 <div>
-<h2 data-i18n="regionTitle">Discover the Bodensee Region</h2>
-<p data-i18n="regionText">Hard is located directly on Lake Constance and is an ideal starting point for cycling, swimming, hiking and day trips to Austria, Germany and Switzerland.</p>
+<h2>Discover the Region</h2>
+<p>Perfect for cycling, swimming and relaxing.</p>
 </div>
-
-<img src="assets/images/localidad.jpg" alt="foto">
-
+<img src="assets/images/localidad.jpg">
 </section>
 
-<!-- MAP -->
-<section class="container map">
-<h2>Location</h2>
-<iframe src="https://www.google.com/maps?q=Hard%20Vorarlberg&output=embed" title="mapa"></iframe>
+<section class="map">
+<iframe src="https://www.google.com/maps?q=Hard%20Vorarlberg&output=embed"></iframe>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-<h2 data-i18n="contact">Contact & Booking</h2>
-<p>Email:</p>
-<p><a href="mailto:info@bodensee-apartments.com">info@bodensee-apartments.com</a></p>
+<section id="contact">
+<h2>Contact</h2>
+<p>info@bodensee-apartments.com</p>
 </section>
 
 <footer>
-© 2026 Ferienwohnung Juriatti · Hard · Vorarlberg
+© 2026 Juriatti
 </footer>
 
+<script>
+function toggleMenu(){
+ document.getElementById('menu').classList.toggle('active');
+}
 
+function openLightbox(img){
+ const lightbox=document.getElementById('lightbox');
+ const lightboxImg=document.getElementById('lightbox-img');
+ lightbox.style.display='flex';
+ lightboxImg.src=img.src;
+}
 
-<script src="js/script.js"></script>
+function closeLightbox(){
+ document.getElementById('lightbox').style.display='none';
+}
+</script>
 
 </body>
 </html>
