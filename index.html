@@ -1,216 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ferienwohnung Juriatti</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --primary:#2A7FFF;
-  --dark:#111;
-  --light:#fff;
-  --gray:#666;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
-body{line-height:1.5;color:var(--dark)}
-
-/* NAV */
-nav{
- position:fixed;
- top:0;left:0;width:100%;
- display:flex;justify-content:space-between;align-items:center;
- padding:1rem 2rem;
- background:rgba(255,255,255,0.8);
- z-index:1000;
-}
-nav h2{font-size:1.2rem}
-.menu{display:flex;gap:1rem}
-.menu a{text-decoration:none;color:var(--dark)}
-.hamburger{display:none;font-size:1.5rem;cursor:pointer}
-
-/* HERO */
-.hero{
- height:100vh;
- background:url('assets/images/bici_sonnenruntergang.jpg') center/cover;
- display:flex;align-items:center;justify-content:center;
- text-align:center;
- color:white;
- position:relative;
-}
-.hero::after{
- content:"";
- position:absolute;inset:0;
- background:rgba(0,0,0,0.4);
-}
-.hero-content{position:relative;z-index:1}
-.hero h1{font-size:2.5rem}
-.hero button{
- margin-top:1rem;
- padding:.8rem 1.5rem;
- border:none;background:var(--primary);
- color:white;border-radius:5px;cursor:pointer;
-}
-
-/* SECTION */
-section{padding:4rem 2rem;max-width:1200px;margin:auto}
-
-/* CARDS */
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
- gap:2rem;
-}
-.card{
- border-radius:10px;overflow:hidden;
- box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-.card img{width:100%;height:200px;object-fit:cover}
-.card-content{padding:1rem}
-.card button{
- margin-top:.5rem;
- background:var(--primary);
- color:white;border:none;padding:.5rem 1rem;border-radius:5px;
-}
-
-/* GALLERY */
-.gallery{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
- gap:10px;
-}
-.gallery img{width:100%;cursor:pointer;border-radius:5px}
-
-/* LIGHTBOX */
-.lightbox{
- position:fixed;inset:0;
- background:rgba(0,0,0,0.9);
- display:none;align-items:center;justify-content:center;
-}
-.lightbox img{max-width:90%;max-height:90%}
-
-/* REGION */
-.region{
- display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;
-}
-.region img{width:100%;border-radius:10px}
-
-/* MAP */
-.map iframe{width:100%;height:300px;border:0}
-
-/* FOOTER */
-footer{
-  width: 100%;
-  text-align:center;
-  padding:2rem;
-  background:#f5f5f5;
-}
-
-/* MOBILE */
-@media(max-width:768px){
- .menu{display:none;flex-direction:column;position:fixed;top:0;right:0;background:white;height:100%;width:70%;padding:2rem}
- .menu.active{display:flex}
- .hamburger{display:block}
- .region{grid-template-columns:1fr}
- .hero h1{font-size:2rem}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Ferienwohnung Juriatti in Hard am Bodensee. Zwei stilvolle Apartments mit Kuche, Parkplatz und idealer Lage fur entspannte Urlaubstage."
+  >
+  <title>Ferienwohnung Juriatti | Hard am Bodensee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div id="home"></div>
-<nav>
-<h2>Juriatti</h2>
-<div class="hamburger" onclick="toggleMenu()">☰</div>
-<div class="menu" id="menu">
-  <div class="hamburger" onclick="toggleMenu()">X</div>
-  <a href="#contact">Contact</a>
-  <a href="#region">Region</a>
-  <a href="#home">Home</a>
-  <a href="#apartments">Apartments</a>
-</div>
-</nav>
+  <div id="top"></div>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Ferienwohnung Juriatti">
+        <span class="brand-kicker">Hard am Bodensee</span>
+        <span class="brand-name">Ferienwohnung Juriatti</span>
+      </a>
 
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-<section class="hero">
-<div class="hero-content">
-<h1>Holiday Apartments near Lake Constance</h1>
-<button>Book Now</button>
-</div>
-</section>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#apartments" data-i18n="navApartments">Apartments</a>
+        <a href="#experience" data-i18n="navRegion">Region</a>
+        <a href="#prices" data-i18n="navPrices">Prices</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
 
-<section id="apartments">
-<h2>Apartments</h2>
-<div class="grid">
-<div class="card">
-<img src="assets/images/apartament-1.jpg" alt="apartament-1">
-<div class="card-content">
-<h3>Apartment 1</h3>
-<p>Modern apartment</p>
-<button>View</button>
-</div>
-</div>
-<div class="card">
-<img src="assets/images/apartament-2.jpg" alt="apartament-2">
-<div class="card-content">
-<h3>Apartment 2</h3>
-<p>Bright and spacious</p>
-<button>View</button>
-</div>
-</div>
-</div>
-</section>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Language switcher">
+          <button class="lang-button is-active" type="button" data-lang="de">DE</button>
+          <button class="lang-button" type="button" data-lang="en">EN</button>
+        </div>
+        <a class="button button--ghost" href="#contact" data-i18n="headerButton">Anfragen</a>
+      </div>
+    </header>
 
-<section>
-<h2>Gallery</h2>
-<div class="gallery">
-<img src="assets/images/a1-1.jpg" onclick="openLightbox(this)" alt="Gallery Image 1">
-<img src="assets/images/a1-2.jpg" onclick="openLightbox(this)" alt="Gallery Image 2">
-<img src="assets/images/a1-3.jpg" onclick="openLightbox(this)" alt="Gallery Image 3">
-</div>
-</section>
+    <main >
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="heroEyebrow">Zwei Apartments fur ruhige Tage am See</p>
+          <h1 data-i18n="heroTitle">Stilvoll wohnen zwischen Bodensee, Bergen und Altstadtflair.</h1>
+          <p class="hero-text" data-i18n="heroText">
+            Willkommen in Hard, Vorarlberg: zwei helle Ferienwohnungen fur entspannte Urlaubstage,
+            spontane Kurztrips und aktive Auszeiten mit Fahrrad, Schiff oder Badetasche.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#apartments" data-i18n="heroPrimary">Apartments entdecken</a>
+            <a class="button button--secondary" href="#contact" data-i18n="heroSecondary">Verfugbarkeit anfragen</a>
+          </div>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
-</div>
+          <div class="hero-metrics">
+            <article>
+              <strong>2</strong>
+              <span data-i18n="metricApartments">Apartments</span>
+            </article>
+            <article>
+              <strong>30 m²</strong>
+              <span data-i18n="metricSpace">pro Wohnung</span>
+            </article>
+            <article>
+              <strong>Bodensee</strong>
+              <span data-i18n="metricLocation">in der Nahe</span>
+            </article>
+          </div>
+        </div>
 
-<section class="region" id="region">
-<div>
-<h2>Discover the Region</h2>
-<p>Perfect for cycling, swimming and relaxing.</p>
-</div>
-<img src="assets/images/localidad.jpg" alt="Localidad">
-</section>
+        <div class="hero-visual">
+          <div class="hero-card hero-card--main">
+            <img src="assets/images/morning2.jpg" alt="Morning light at Lake Constance">
+          </div>
+          <div class="hero-card hero-card--accent">
+            <img src="assets/images/bici_sonnenruntergang.jpg" alt="Cycling route at sunset">
+          </div>
 
+        </div>
+      </section>
 
-<section >
-<h2>Contact</h2>
-<p>info@bodensee-apartments.com</p>
-</section>
+      <section class="section intro-strip">
+        <article>
+          <p class="section-label" data-i18n="introLabel">Warum Gaste gern wiederkommen</p>
+          <h2 data-i18n="introTitle">Ruhige Lage, unkomplizierter Aufenthalt und alles Wichtige in Reichweite.</h2>
+        </article>
+        <div class="intro-points">
+          <div class="info-chip" data-i18n="chipKitchen">Voll ausgestattete Kuche</div>
+          <div class="info-chip" data-i18n="chipParking">Kostenloser Parkplatz</div>
+          <div class="info-chip" data-i18n="chipGarden">Garten mit Grillmoglichkeit</div>
+          <div class="info-chip" data-i18n="chipYearRound">Ganzjahrige Vermietung</div>
+        </div>
+      </section>
 
-<section class="map">
-<iframe src="https://www.google.com/maps?q=Hard%20Vorarlberg&output=embed" title="Google Map"></iframe>
-</section>
-<div id="contact"></div>
-<footer>
-© 2026 Juriatti
-</footer>
+      <section class="section" id="apartments">
+        <div class="section-heading">
+          <p class="section-label" data-i18n="apartmentsLabel">Unsere Apartments</p>
+          <h2 data-i18n="apartmentsTitle">Zwei Unterkunfte, derselbe entspannte Rhythmus.</h2>
+          <p data-i18n="apartmentsText">
+            Beide Wohnungen sind liebevoll eingerichtet und ideal fur Paare, Alleinreisende oder kleine Familien.
+          </p>
+        </div>
 
-<script>
-function toggleMenu(){
- document.getElementById('menu').classList.toggle('active');
-}
+        <div class="apartment-grid">
+          <article class="apartment-card">
+            <div class="apartment-image">
+              <img src="assets/images/ro_5.png" alt="Apartment Pfander">
+            </div>
+            <div class="apartment-body">
+              <div class="apartment-topline">
+                <span data-i18n="aptOneBadge">Mit Veranda</span>
+                <strong>30 m²</strong>
+              </div>
+              <h3 data-i18n="aptOneTitle">Ferienwohnung Pfander</h3>
+              <p data-i18n="aptOneText">
+                Freundliche Wohnung fur entspannte Tage mit Doppelbett, optionalem Kinderbett und warmer Wohnatmosphare.
+              </p>
+              <ul class="feature-list">
+                <li data-i18n="aptOneFeature1">Doppelbett plus Kinderbett auf Wunsch</li>
+                <li data-i18n="aptOneFeature2">Kuche, TV und WLAN</li>
+                <li data-i18n="aptOneFeature3">Ideal fur ruhige Kurzurlaube</li>
+              </ul>
+              <!-- <button class="text-link" type="button" data-gallery="pfander" data-i18n="openGallery">Galerie offnen</button> -->
+            </div>
+          </article>
 
-function openLightbox(img){
- const lightbox=document.getElementById('lightbox');
- const lightboxImg=document.getElementById('lightbox-img');
- lightbox.style.display='flex';
- lightboxImg.src=img.src;
-}
+          <article class="apartment-card">
+            <div class="apartment-image">
+              <img src="assets/images/ro_10.png" alt="Apartment See">
+            </div>
+            <div class="apartment-body">
+              <div class="apartment-topline">
+                <span data-i18n="aptTwoBadge">Mit Terrasse</span>
+                <strong>30 m²</strong>
+              </div>
+              <h3 data-i18n="aptTwoTitle">Ferienwohnung See</h3>
+              <p data-i18n="aptTwoText">
+                Helles Apartment mit luftiger Terrasse und unkompliziertem Komfort fur aktive Tage am Bodensee.
+              </p>
+              <ul class="feature-list">
+                <li data-i18n="aptTwoFeature1">Terrasse fur Frischluftmomente</li>
+                <li data-i18n="aptTwoFeature2">Bettwasche, Handtucher und Fohn inklusive</li>
+                <li data-i18n="aptTwoFeature3">Parkplatz direkt vor dem Haus</li>
+              </ul>
+              <!-- <button class="text-link" type="button" data-gallery="see" data-i18n="openGallery">Galerie offnen</button> -->
+            </div>
+          </article>
+        </div>
+      </section>
 
-function closeLightbox(){
- document.getElementById('lightbox').style.display='none';
-}
-</script>
+      <section class="section section--split" id="experience">
+        <div class="experience-copy">
+          <p class="section-label" data-i18n="regionLabel">Die Umgebung</p>
+          <h2 data-i18n="regionTitle">Urlaub zwischen See, Fahrradrouten und Vorarlberger Gelassenheit.</h2>
+          <p data-i18n="regionText">
+            Hard ist ein wunderbarer Ausgangspunkt fur Badetage am Bodensee, Schiffsausfluge, Radtouren und kleine Entdeckungen zwischen Osterreich, Deutschland und der Schweiz.
+          </p>
 
+          <div class="experience-highlights">
+            <article>
+              <h3 data-i18n="regionCard1Title">Wasser & Hafen</h3>
+              <p data-i18n="regionCard1Text">Promenade, Schiffe und entspannte Sonnenuntergange nur wenige Minuten entfernt.</p>
+            </article>
+            <article>
+              <h3 data-i18n="regionCard2Title">Aktiv unterwegs</h3>
+              <p data-i18n="regionCard2Text">Perfekt fur Fahrradtouren, Spaziergange und spontane Tagesausfluge.</p>
+            </article>
+            <article>
+              <h3 data-i18n="regionCard3Title">Kurze Wege</h3>
+              <p data-i18n="regionCard3Text">Bregenz, Lindau und viele Ausflugsziele lassen sich bequem erreichen.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="experience-visual">
+          <img src="assets/images/bici_2.png" alt="Lake and local area">
+          <div class="postcard">
+            <span data-i18n="postcardLabel">Tipp fur Gaste</span>
+            <strong data-i18n="postcardText">Ideal fur Sommerurlaub, ruhige Wochenenden und aktive Pausen zu zweit.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gallery-section">
+        <div class="section-heading">
+          <p class="section-label" data-i18n="galleryLabel">Einblicke</p>
+          <h2 data-i18n="galleryTitle">Ein erster Blick in die Apartments und die Region.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item" type="button" data-full="assets/images/ro_1.png" data-caption-key="galleryCaption1">
+            <img src="assets/images/ro_1.png" alt="Apartment gallery image 1">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_2.png" data-caption-key="galleryCaption2">
+            <img src="assets/images/ro_2.png" alt="Apartment gallery image 2">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_3.png" data-caption-key="galleryCaption3">
+            <img src="assets/images/ro_3.png" alt="Lake morning">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_4.png" data-caption-key="galleryCaption4">
+            <img src="assets/images/ro_4.png" alt="Boats on the lake">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_5.png" data-caption-key="galleryCaption1">
+            <img src="assets/images/ro_5.png" alt="Apartment gallery image 1">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_6.png" data-caption-key="galleryCaption2">
+            <img src="assets/images/ro_6.png" alt="Apartment gallery image 2">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_7.png" data-caption-key="galleryCaption3">
+            <img src="assets/images/ro_7.png" alt="Lake morning">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_8.png" data-caption-key="galleryCaption4">
+            <img src="assets/images/ro_8.png" alt="Boats on the lake">
+          </button>
+           <button class="gallery-item" type="button" data-full="assets/images/ro_9.png" data-caption-key="galleryCaption1">
+            <img src="assets/images/ro_9.png" alt="Apartment gallery image 1">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_10.png" data-caption-key="galleryCaption2">
+            <img src="assets/images/ro_10.png" alt="Apartment gallery image 2">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_11.png" data-caption-key="galleryCaption3">
+            <img src="assets/images/ro_11.png" alt="Lake morning">
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/images/ro_12.png" data-caption-key="galleryCaption4">
+            <img src="assets/images/ro_12.png" alt="Boats on the lake">
+          </button>
+        </div>
+      </section>
+
+      <section class="section amenities-section">
+        <div class="section-heading">
+          <p class="section-label" data-i18n="amenitiesLabel">Ausstattung</p>
+          <h2 data-i18n="amenitiesTitle">Alles fur einen unkomplizierten Aufenthalt.</h2>
+        </div>
+
+        <div class="amenities-layout">
+          <div class="amenities-card">
+            <h3 data-i18n="amenitiesIncludedTitle">Inklusive</h3>
+            <ul class="feature-list feature-list--spacious">
+              <li data-i18n="amenity1">Voll ausgestattete Kuche</li>
+              <li data-i18n="amenity2">Bettwasche und Handtucher</li>
+              <li data-i18n="amenity3">Fohn und Waschtrockner</li>
+              <li data-i18n="amenity4">TV und WLAN</li>
+              <li data-i18n="amenity5">Sitz- und Grillmoglichkeit im Garten</li>
+              <li data-i18n="amenity6">Nichtraucher-Apartments</li>
+            </ul>
+          </div>
+
+          <div class="amenities-card">
+            <h3 data-i18n="goodToKnowTitle">Gut zu wissen</h3>
+            <ul class="feature-list feature-list--spacious">
+              <li data-i18n="info1">Keine Haustiere erlaubt</li>
+              <li data-i18n="info2">Keine Kartenzahlung moglich</li>
+              <li data-i18n="info3">Keine Ladestation fur Elektrofahrzeuge</li>
+              <li data-i18n="info4">Nicht barrierefrei</li>
+              <li data-i18n="info5">Kein Mindestaufenthalt</li>
+              <li data-i18n="info6">Ganzjahrig buchbar</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pricing-section" id="prices">
+        <div class="section-heading">
+          <p class="section-label" data-i18n="pricesLabel">Preise</p>
+          <h2 data-i18n="pricesTitle">Klare Saisonpreise fur beide Apartments.</h2>
+          <p data-i18n="pricesText">Alle Preise verstehen sich in Euro pro Unterkunft und Nacht.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <span data-i18n="priceSeason1">01.09. - 31.05.</span>
+            <strong data-i18n="priceSeason1Rate1">Ferienwohnung Pfänder mit Vera ab: 65 EUR</strong>
+            <p data-i18n="priceSeason1Rate2">Ferienwohnung See mit Terrasse ab: 75 EUR</p>
+          </article>
+          <article class="price-card">
+            <span data-i18n="priceSeason2">01.06. - 31.08.</span>
+            <strong data-i18n="priceSeason2Rate1">Ferienwohnung Pfänder mit Vera ab:  75 EUR</strong>
+            <p data-i18n="priceSeason2Rate2">Ferienwohnung See mit Terrasse ab: 85 EUR</p>
+          </article>
+          <article class="price-card">
+            <span data-i18n="priceExtras">Weitere Kosten</span>
+            <strong data-i18n="priceExtra1">3. Person: 10 EUR</strong>
+            <p data-i18n="priceExtra2">Endreinigung: 50 EUR</p>
+          </article>
+          <article class="price-card">
+            <span data-i18n="priceExtras2">Übernachtungsmöglichkeiten (1 - 3 Personen)</span>
+            <strong data-i18n="priceExtra23">Schlafzimmer mit Doppelbett</strong>
+            <p data-i18n="priceExtra3">Kein Mindestaufenthalt</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="contact-copy">
+          <p class="section-label" data-i18n="contactLabel">Kontakt</p>
+          <h2 data-i18n="contactTitle">Fragen, Wunschtermine oder Buchungsanfrage?</h2>
+          <p data-i18n="contactText">
+            Schreiben Sie uns gern. Wir freuen uns auf Ihre Anfrage und melden uns so schnell wie moglich.
+          </p>
+
+          <div class="contact-list">
+            <a href="mailto:appartementsjuriatti@gmx.at">appartementsjuriatti@gmx.at</a>
+            <p data-i18n="contactAddress">Achstrasse 36, 6971 Hard, Osterreich</p>
+          </div>
+
+          <a class="button" href="mailto:appartementsjuriatti@gmx.at" data-i18n="contactButton">
+            Jetzt anfragen
+          </a>
+        </div>
+
+        <div class="map-card">
+          <iframe
+            src="https://www.google.com/maps?q=Achstra%C3%9Fe%2036%2C%206971%20Hard%2C%20Austria&output=embed"
+            title="Map of Ferienwohnung Juriatti"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Ferienwohnung Juriatti</strong>
+        <p data-i18n="footerText">Zwei Apartments fur entspannte Urlaubstage in Hard am Bodensee.</p>
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="lightbox" id="lightbox">
+    <button class="lightbox-close" type="button" aria-label="Close gallery">&times;</button>
+    <img id="lightbox-image" src="" alt="">
+    <p id="lightbox-caption"></p>
+  </dialog>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
